@@ -1,0 +1,6 @@
+{"message": "I was charged twice for my subscription and I need the second charge refunded.", "expected": {"intent": "billing", "sub_category": "duplicate_charge", "urgency": 4, "escalate": true, "team": "billing"}}
+{"message": "Can you send me a receipt for last month's invoice?", "expected": {"intent": "billing", "sub_category": "other_billing", "urgency": 2, "escalate": false, "team": "billing"}}
+{"message": "I'm locked out of my account and can't log in, I have a deadline today!", "expected": {"intent": "account", "sub_category": "access", "urgency": 4, "escalate": true, "team": "support"}}
+{"message": "The app crashes every time I open the export page.", "expected": {"intent": "technical", "sub_category": "bug", "urgency": 3, "escalate": false, "team": "engineering"}}
+{"message": "Please cancel my subscription at the end of the month.", "expected": {"intent": "account", "sub_category": "cancellation", "urgency": 2, "escalate": false, "team": "support"}}
+{"message": "Do you have a dark mode planned?", "expected": {"intent": "general", "sub_category": "other", "urgency": 1, "escalate": false, "team": "support"}}

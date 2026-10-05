@@ -1,0 +1,32 @@
+name: support_ticket_triage
+description: Triage an incoming customer support message so it reaches the right team.
+
+fields:
+  - name: intent
+    type: enum
+    values: [billing, technical, account, general]
+    description: What the customer's message is mainly about.
+  - name: sub_category
+    type: enum
+    values: [duplicate_charge, other_billing, bug, access, cancellation, other]
+    description: The specific issue within the intent.
+  - name: urgency
+    type: int
+    min: 1
+    max: 5
+    description: How time-sensitive the message is, from 1 (can wait) to 5 (critical).
+  - name: escalate
+    type: bool
+    description: Whether a human should look at this right away.
+  - name: team
+    type: enum
+    values: [billing, engineering, support]
+    description: The team that should handle the message.
+
+rules:
+  - name: urgent_must_escalate
+    when: {urgency_gte: 4}
+    then: {escalate: true}
+  - name: billing_goes_to_billing
+    when: {intent: billing}
+    then: {team: billing}
